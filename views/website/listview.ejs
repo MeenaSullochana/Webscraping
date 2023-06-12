@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+        table, th, td {
+          border: 2px solid black;
+          border-collapse: collapse;
+          text-align: center;
+          padding: 8px;
+          
+        }
+        table.center {
+            margin-left: auto; 
+           margin-right: auto;
+           width: 80%;
+       }
+        </style>
+</head>
+<body>
+    <table border="2" class="center">
+
+        <thead>
+          <tr>
+            <th>Domain Name</th>
+            <th>Word Count</th>
+            <th>Favourite</th>
+            <th>Web Link</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%if (list.length >0){ %>
+          <% list.forEach(function(lis){ %>
+          <tr>
+            <td><%= lis.domainname %></td>
+            <td><%= lis.wordCount %></td>
+            <td><%= lis.favourite %></td>
+            <td><a href=<%= lis.weblink %>> <%= lis.weblink %></a></td>
+            <td>
+              <a href="/website/delete/<%= lis._id %>"> Remove</a>
+            </br>
+              <a href="/website/<%= lis._id %>">Add to Fav</a>
+             
+            </td>
+           
+          </tr>
+          <% })}else{ %>
+            <tr>
+                <td colspan="6">No Record Found</td>
+                
+              </tr>
+            <% } %>
+        </tbody>
+      </table>
+</body>
+</html>
+
+
+ 
